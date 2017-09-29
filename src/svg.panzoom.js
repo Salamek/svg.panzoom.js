@@ -18,6 +18,7 @@ SVG.extend(SVG.Doc, SVG.Nested, {
     var zoomFactor = options.zoomFactor || 0.03
     var zoomMin = options.zoomMin || Number.MIN_VALUE
     var zoomMax = options.zoomMax || Number.MAX_VALUE
+    var panMouse = options.panMouse || 1
 
     var lastP, lastTouches, zoomInProgress = false
 
@@ -116,6 +117,8 @@ SVG.extend(SVG.Doc, SVG.Nested, {
 
     var panStart = function(ev) {
       ev.preventDefault()
+
+      if (ev.which != panMouse) return
 
       this.off('mousedown.panZoom', panStart)
 
