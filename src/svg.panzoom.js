@@ -187,7 +187,7 @@ SVG.extend(SVG.Doc, SVG.Nested, {
         .scale(zoomAmount, point.x, point.y)
       )
 
-    if(this.fire('zoom', {box: box, focus: point}).event().defaultPrevented)
+    if(this.fire('zoom', {box: box, focus: point, level: level}).event().defaultPrevented)
       return this
 
     return this.viewbox(box)
